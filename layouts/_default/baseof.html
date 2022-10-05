@@ -2,11 +2,61 @@
 <html>
 {{ partial "head.html" . }}
 
-<body>
-    {{- partial "header.html" . -}}
-    <div id="content">
-        {{- block "main" . }}{{- end }}
+<body  class="light-wallpaper">
+    <!-- {{- partial "header.html" . -}} -->
+
+    <div class="window">
+
+      <div class="title-bar-and-content light-title-bar">
+	<span class="light-tile-bar-left-border">
+	  <img src="/images/top-left-active.png">
+	  
+	  <img src="/images/terminal.png" class="title-bar-icon-container">
+	</span>
+	
+	<span class="light-title-bar-title">
+	  {{- .Title | markdownify -}}
+	</span>
+	
+	<span class="light-title-bar-buttons">
+	  <span>
+	    <img src="/images/hide-active.png" title="Minimize">
+	    <img src="/images/maximize-active.png" title="Maximize"> 
+	    <img src="/images/close-active.png" title="Close"> 
+	  </span>
+	  
+	  <span>
+	    <img src="/images/top-right-active.png">
+	  </span>
+	</span>
+
+      </div>
+
+      <div class="window-border-container">
+
+	<div class="menu-bar-container">
+	  <div class="light-menu-bar vertical-center">
+	    <a href="/" class="light-menu-bar">Home</a>  
+	    <!-- <a href="/random/" class="light-menu-bar">Random</a> -->
+	    <a href="/tags/" class="light-menu-bar">Tags</a>
+	    <a href="/me/" class="light-menu-bar">Me</a>
+	    <a href="/frens/" class="light-menu-bar">Frens</a>
+	    <a href="/index.xml" class="light-menu-bar">RSS</a>
+	    </div>
+	</div>
+	
+      
+	<div class="title-bar-and-content light-content">
+	  <div class="content">
+            {{- block "main" . }}{{- end }}
+	    {{ if .Param "taglist" }}{{ partial "tags.html" . }}{{ end -}}
+	  </div>
+	</div>
+	
+      </div>
+
     </div>
+    
     {{- partial "footer.html" . -}}
 </body>
 

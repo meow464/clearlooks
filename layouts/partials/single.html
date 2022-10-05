@@ -1,9 +1,11 @@
+{{ if (eq .Section "blog") }}
 <header>
     <h1>
         {{- .Title | markdownify -}}
     </h1>
     {{ partial "post_meta.html" . }}
 </header>
+{{ end }}
 <article>
     {{ .Content }}
 </article>

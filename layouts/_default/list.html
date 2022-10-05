@@ -1,23 +1,43 @@
 {{ define "main" }}
+{{ with .Content }}
+<div class="index-content">
+  {{ . }}
+</div>
+{{ end }}
+<div class="posts">
 
-{{/* Display _index.md if available */}}
-{{ if .Content }}
-{{ partial "single" . }}
+{{ if ne .IsHome true }}
+
+<p>
+{{ if eq .Page.Title "Tags" }}
+meow464@neocities.org:~/Documents$ ls
+{{ else }}
+meow464@neocities.org:~/Documents$ ls {{ .Page.Title }}
+{{ end }}
+</p>
+
+<ul>
+{{ range .Data.Pages }}
+<li> <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+{{ end }}
+</ul>
 {{ end }}
 
-{{/* List all pages */}}
-<ul>
-    {{ range .Paginator.Pages }}
-    <li>
-        <a href="{{ .RelPermalink }}">
-            {{- .Title | markdownify }}
-        </a>
-        {{ partial "post_meta.html" . }}
-    </li>
-    {{ end }}
-</ul>
+{{ if .IsHome }}
+{{ range where .Site.Pages "Section" "blog"}}
+{{ range .Pages }}
+<div>
+  <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a> - {{ .Date.Format "2006-01-02" }}
+</div>
 
-{{/* Display paginator */}}
-{{ template "_internal/pagination.html" . }}
+<br>
+{{ end }}
+{{ end }}
+{{ end }}
+    
+{{/*
+{{ partial "pagination.html" . }}
+*/}}
 
+</div>
 {{ end }}

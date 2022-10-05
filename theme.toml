@@ -1,12 +1,11 @@
-name = "Simple Hugo Theme"
+name = "Clearlooks Theme"
 license = "MIT"
-licenselink = "https://github.com/Xzya/simple-hugo-theme/blob/master/LICENSE.md"
-description = "A very simple and lightweight Hugo Theme inspired by the geniuses behind [bettermotherfuckingwebsite.com](http://bettermotherfuckingwebsite.com/)."
-homepage = "https://github.com/Xzya/simple-hugo-theme"
-tags = ["blog", "minimal", "clean", "light"]
-features = ["small page size", "fast", "tags", "google analytics", "pagination"]
+description = "A Linux terminal with the Gtk clearlooks theme."
+homepage = "https://github.com/meow464/clearlooks-hugo"
+tags = ["clearlooks", "gtk", "terminal"]
+features = ["cool af", "pagination"]
 min_version = "0.41"
 
 [author]
-  name = "Mihail Cristian Dumitru"
-  homepage = "https://github.com/Xzya"
+  name = "Meow464"
+  homepage = "https://meow464.neocities.org/"
