@@ -131,3 +131,9 @@ ul.pagination > li {
     padding: 0 8px;
     display: inline-block;
 }
+
+.my-comment {
+    background-color: #eee8d5;
+    padding: 5px;
+    border-radius: 10px;
+}
