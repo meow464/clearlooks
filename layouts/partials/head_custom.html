@@ -1,1 +1,13 @@
 {{/*  Create <project-root>/layouts/partials/head-custom.html to overwrite this empty template and put custom code into the <head> section.  */}}
+
+{{ if .Params.katex }}
+
+    <link rel="stylesheet" href="/katex@0.16.2/katex.min.css">
+    
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="/katex@0.16.2/katex.min.js"></script>
+    
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="/katex@0.16.2/contrib/auto-render.min.js"  onload="renderMathInElement(document.body);"></script>
+    
+{{ end }}
