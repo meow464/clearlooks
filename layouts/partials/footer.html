@@ -22,21 +22,7 @@
 </div>
 
 {{ if (findRE "<pre" .Content 1) }}
-  {{ $clipboard := resources.Get "js/clipboard.js" | minify -}}
-    <script>
-        {{- $clipboard.Content | safeJS -}}
-    </script>
-
-    <!-- <script src="/js/clipboard.js"></script> -->
-{{ end }}
-
-{{ if (findRE "<pre" .Content 1) }}
-  {{ $clipboard := resources.Get "css/clipboard.css" | minify -}}
-    <style>
-        {{- $clipboard.Content | safeCSS -}}
-    </style>
-
-    <!-- <link rel="stylesheet" href="/css/clipboard.css"> -->
+  <script src="/js/clipboard-polyfill.promise.js"></script>
 {{ end }}
 
 {{ end }}
